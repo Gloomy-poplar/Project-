@@ -1,69 +1,54 @@
 <template>
-  <v-app>
-    <v-toolbar class='orange lighten-4'>
+  <div>
+    <v-toolbar app class='Primary'>
       <v-spacer></v-spacer>
-      <v-btn color="primary" class="white--text btn">
-        Login
-        <v-icon>home</v-icon>
+      <v-btn v-for="(item, i) in menuItems" color="primary" class="white--text btn" :key="`menuitem${i}`" :to="item.route">
+        <v-icon left v-html="item.icon"></v-icon>
+        {{item.title}}
       </v-btn>
     </v-toolbar>
-<v-form v-model="valid">
-    <v-container>
-      <v-layout>
-        <v-flex
-          xs12
-          md4
-        >
-          <v-text-field
-            v-model="firstname"
-            :rules="nameRules"
-            :counter="10"
-            label="First name"
-            required
-          ></v-text-field>
-        </v-flex>
-
-        <v-flex
-          xs12
-          md4
-        >
-          <v-text-field
-            v-model="lastname"
-            :rules="nameRules"
-            :counter="10"
-            label="Last name"
-            required
-          ></v-text-field>
-        </v-flex>
-
-        <v-flex
-          xs12
-          md4
-        >
-          <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-          ></v-text-field>
-        </v-flex>
-      </v-layout>
-    </v-container>
-
-    <v-layout align-center justify-end row><v-btn color="success">accept</v-btn></v-layout>
-  
- 
- 
- 
- 
- </v-form>
-
-  </v-app>
+  </div>
 </template>
 
 <script>
   export default {
+    name: "RwvHeader",
+    computed: {
+      menuItems() {
+        return [{
+            icon: 'home',
+            title: 'Sign up',
+            route: '/register'
+          },
+          {
+            icon: 'lock_open',
+            title: 'Login',
+            route: '/login'
+          },
+          {
+            icon: 'account_box',
+            title: 'MyProfile',
+            route: '/profile'
 
+          },
+          {
+            icon: 'exit_to_app',
+            title: 'Logout',
+            route: '/logout'
+          },
+          { icon: 'exit_to_app',
+            title: 'Test',
+            route: '/test'
+          },
+          {
+            icon:'perm_identity',
+            title: 'Список сотрудников',
+            route:'/personallist'
+          }
+
+        ]
+      }
+    }
   }
 </script>
 

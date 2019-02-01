@@ -13,10 +13,32 @@ export default new Router({
       name: 'home',
       component: Home
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import(/* webpackChunkName: "about" */ './views/Register.vue')
+    },
+     {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import(/* webpackChunkName: "about" */ './views/test.vue')
+    },
+    {
+      path: '/personallist',
+      name: 'personallist',
+      component: () => import(/* webpackChunkName: "about" */ './views/PersonalList.vue')
+    },
+    {
+      path: '/personal/:id',
+      name: 'personal',
+      props: true,
+      component: () => import(/* webpackChunkName: "about" */ './views/Personal.vue')
+
+    }
   ]
 })
